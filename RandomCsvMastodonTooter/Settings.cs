@@ -18,4 +18,9 @@ public class Settings
         return JsonConvert.DeserializeObject<Settings>(text) ??
                throw new ApplicationException($"Your '{SettingsFileName}' appears to be empty or corrupt.");
     }
+
+    public void SetValue(string setting, string value)
+    {
+        throw new NotImplementedException();
+    }
 }
