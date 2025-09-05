@@ -1,9 +1,16 @@
 ﻿namespace RandomCsvMastodonTooter;
 
-class Program
+public static class Program
 {
-    static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        var settings = Settings.Load();
+        var csvManager = new CsvManager(settings);
+        var randomLine = csvManager.GetRandomLine();
+        var templateManager = new TemplateManager();
+        var tootContent = templateManager.GetToot(randomLine);
+        var mastodonClient = new MastodonApiClient();
+        await mastodonClient.Post(settings.InstanceUrl, settings.Token, tootContent);
+        csvManager.MoveToDone(randomLine);
     }
 }
