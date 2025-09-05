@@ -5,10 +5,11 @@ namespace RandomCsvMastodonTooter;
 public class Settings
 {
     private const string SettingsFileName = "settings.json";
-    
+
+    public string? DataFileName { get; set; } = string.Empty;
     public string InstanceUrl { get; set; } = string.Empty;
     public string Token { get; set; } = string.Empty;
-    
+
     public static Settings Load()
     {
         if (!File.Exists(SettingsFileName))
@@ -23,6 +24,9 @@ public class Settings
     {
         switch (setting.ToLower())
         {
+            case "datafilename":
+                DataFileName = value;
+                break;
             case "instanceurl":
                 InstanceUrl = value;
                 break;
