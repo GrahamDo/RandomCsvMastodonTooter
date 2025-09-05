@@ -16,7 +16,7 @@ public static class Program
 
             var csvManager = new CsvManager(settings);
             var randomLine = csvManager.GetRandomLine();
-            var templateManager = new TemplateManager();
+            var templateManager = new TemplateManager(settings);
             var tootContent = templateManager.GetToot(randomLine);
             var mastodonClient = new MastodonApiClient();
             await mastodonClient.Post(settings.InstanceUrl, settings.Token, tootContent);

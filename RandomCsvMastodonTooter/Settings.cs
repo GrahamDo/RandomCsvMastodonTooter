@@ -7,6 +7,8 @@ public class Settings
     private const string SettingsFileName = "settings.json";
 
     public string? DataFileName { get; set; } = string.Empty;
+    public string? TemplateFileName { get; set; } = "toot-template.txt";
+    public int FieldCount { get; set; } = 0;
     public string InstanceUrl { get; set; } = string.Empty;
     public string Token { get; set; } = string.Empty;
 
@@ -26,6 +28,14 @@ public class Settings
         {
             case "datafilename":
                 DataFileName = value;
+                break;
+            case "templatefilename":
+                TemplateFileName = value;
+                break;
+            case "fieldcount":
+                if (!int.TryParse(value, out var fieldCount) || fieldCount < 1)
+                    throw new ApplicationException("Invalid FieldCount value");
+                FieldCount = fieldCount;
                 break;
             case "instanceurl":
                 InstanceUrl = value;
