@@ -21,6 +21,24 @@ public class Settings
 
     public void SetValue(string setting, string value)
     {
-        throw new NotImplementedException();
+        switch (setting.ToLower())
+        {
+            case "instanceurl":
+                InstanceUrl = value;
+                break;
+            case "token":
+                Token = value;
+                break;
+            default:
+                throw new ApplicationException($"Unknown setting '{setting}'");
+        }
+
+        Save();
+    }
+
+    private void Save()
+    {
+        var serialised = JsonConvert.SerializeObject(this, Formatting.Indented);
+        File.WriteAllText(SettingsFileName, serialised);
     }
 }
