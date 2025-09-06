@@ -19,7 +19,7 @@ internal class TemplateManager
 
     public string GetToot(string csvLine)
     {
-        var fields = csvLine.Split("\",\"", StringSplitOptions.None);
+        var fields = csvLine.Split("\",\"");
         if (fields.Length != _settings.FieldCount)
             throw new ApplicationException($"Expected {_settings.FieldCount} fields but found {fields.Length}");
 
