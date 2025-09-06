@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Newtonsoft.Json;
 
 namespace RandomCsvMastodonTooter;
@@ -6,10 +7,16 @@ public class Settings
 {
     private const string SettingsFileName = "settings.json";
 
+    //Note: the property setters must be public for JSON deserialization to work
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")] 
     public string? DataFileName { get; set; } = string.Empty;
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")] 
     public string? TemplateFileName { get; set; } = "toot-template.txt";
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")] 
     public int FieldCount { get; set; } = 0;
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")] 
     public string InstanceUrl { get; set; } = string.Empty;
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")] 
     public string Token { get; set; } = string.Empty;
 
     public static Settings Load()
