@@ -44,7 +44,7 @@ internal class CsvManager
         return lineArray[randomIndex];
     }
 
-    private string[] GetLineArray(string fileName)
+    private static string[] GetLineArray(string fileName)
     {
         var lines = File.ReadAllText(fileName);
         var lineArray = lines.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
