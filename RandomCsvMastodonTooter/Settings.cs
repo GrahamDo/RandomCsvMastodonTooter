@@ -13,7 +13,7 @@ public class Settings
     [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")] 
     public string? TemplateFileName { get; set; } = "toot-template.txt";
     [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")] 
-    public int FieldCount { get; set; } = 0;
+    public int FieldCount { get; set; }
     [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")] 
     public string InstanceUrl { get; set; } = string.Empty;
     [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")] 
