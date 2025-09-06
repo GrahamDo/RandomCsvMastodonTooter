@@ -71,8 +71,8 @@ internal class CsvManager
         var doneArray = File.Exists(_doneFileName) ? GetLineArray(_doneFileName) : [];
         var doneList = doneArray.ToList();
         doneList.Add(line);
-        
-        File.WriteAllLines(_settings.DataFileName, sourceList);
+
         File.WriteAllLines(_doneFileName, doneList);
+        File.WriteAllLines(_settings.DataFileName, sourceList);
     }
 }
