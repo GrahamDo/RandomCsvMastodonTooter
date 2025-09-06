@@ -11,7 +11,8 @@ public static class Program
             {
                 settings.SetValue(setting, value);
                 return;
-            } else if (args.Length > 0)
+            }
+            if (args.Length > 0)
                 throw new ApplicationException("Invalid arguments");
 
             var csvManager = new CsvManager(settings);
