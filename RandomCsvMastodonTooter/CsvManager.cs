@@ -15,7 +15,7 @@ internal class CsvManager
         if (!File.Exists(_settings.DataFileName))
             throw new ApplicationException($"File not found: '{_settings.DataFileName}'");
         
-        _doneFileName = Path.ChangeExtension(_settings.DataFileName, ".done.csv");
+        _doneFileName = $"{_settings.DataFileName}.done";
     }
     
     public string GetRandomLine()
