@@ -10,7 +10,7 @@ Note: Every field in your CSV file must be surrounded by double quotes, because 
 
 ## Getting it running
 
-Pull the code, ensure you're on the <code>main</code> branch, and build the solution for your preferred platform. I've tested it on Ubuntu x64 and Linux Mint, but it should run on Windows too, or any other platform with .NET 8 available.
+Pull the code, ensure you're on the <code>main</code> branch, and build the solution for your preferred platform. I've tested it on Ubuntu x64 and Linux Mint, but it should run on Windows too, or any other platform with .NET available.
 
 Then open a terminal and run the following for each setting to configure everything:
 
