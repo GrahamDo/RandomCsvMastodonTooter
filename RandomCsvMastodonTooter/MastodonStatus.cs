@@ -1,12 +1,12 @@
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 // All properties must have public getters and setters in order for serialisation to work
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace RandomCsvMastodonTooter;
 
 internal class MastodonStatus
 {
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public object Status { get; set; } = string.Empty;
 }

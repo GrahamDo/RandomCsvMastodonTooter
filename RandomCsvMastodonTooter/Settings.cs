@@ -1,5 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
-using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace RandomCsvMastodonTooter;
 
@@ -25,7 +25,7 @@ public class Settings
             return new Settings();
 
         var text = File.ReadAllText(SettingsFileName);
-        return JsonConvert.DeserializeObject<Settings>(text) ??
+        return JsonSerializer.Deserialize<Settings>(text) ??
                throw new ApplicationException($"Your '{SettingsFileName}' appears to be empty or corrupt.");
     }
 
@@ -59,7 +59,7 @@ public class Settings
 
     private void Save()
     {
-        var serialised = JsonConvert.SerializeObject(this, Formatting.Indented);
+        var serialised = JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         File.WriteAllText(SettingsFileName, serialised);
     }
 }

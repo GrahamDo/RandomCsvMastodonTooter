@@ -1,5 +1,5 @@
 using System.Text;
-using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace RandomCsvMastodonTooter;
 
@@ -26,7 +26,7 @@ internal class MastodonApiClient
             Status = tootContent
         };
         
-        var json = JsonConvert.SerializeObject(status);
+        var json = JsonSerializer.Serialize(status);
         var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
         var url = BuildBaseUrl(instanceUrl);
         var request = new HttpRequestMessage(HttpMethod.Post, url)
